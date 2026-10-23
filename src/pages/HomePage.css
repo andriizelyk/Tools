@@ -1,0 +1,20 @@
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+.tool-card,
+.tool-card-action {
+  height: 100%;
+}
+
+.tool-card-action {
+  align-items: flex-start;
+}
+
+.tool-card-icon {
+  font-size: 2.5rem !important;
+  margin-bottom: var(--space-xs);
+}

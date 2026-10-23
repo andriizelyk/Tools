@@ -1,0 +1,26 @@
+.indent-select {
+  min-width: 8rem;
+}
+
+.formatter-panes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-sm);
+}
+
+.formatter-error {
+  margin-bottom: var(--space-sm);
+}
+
+.formatter-error-text {
+  margin: 0;
+  white-space: pre-wrap;
+  font-family: var(--mono-font);
+  font-size: 0.8125rem;
+}
+
+@media (max-width: 56rem) {
+  .formatter-panes {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

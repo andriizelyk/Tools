@@ -1,0 +1,41 @@
+.url-section {
+  margin-bottom: var(--space-md);
+}
+
+.url-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.url-row-top {
+  align-items: flex-start;
+}
+
+.url-protocol {
+  width: 10rem;
+}
+
+.url-grow {
+  flex: 1;
+  min-width: 0;
+}
+
+.url-field {
+  margin-bottom: var(--space-sm) !important;
+}
+
+.url-hash {
+  margin-top: var(--space-sm) !important;
+}
+
+.url-subtitle {
+  margin-bottom: var(--space-xs) !important;
+}
+
+@media (max-width: 40rem) {
+  .url-row {
+    flex-wrap: wrap;
+  }
+}
