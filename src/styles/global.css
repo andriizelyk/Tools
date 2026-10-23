@@ -22,7 +22,7 @@ body {
 .app-main {
   max-width: var(--content-width);
   margin: 0 auto;
-  padding: var(--space-md) var(--space-md) var(--space-lg);
+  padding: var(--space-sm) var(--space-md) var(--space-md);
 }
 
 .page-header {
