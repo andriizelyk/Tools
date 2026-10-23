@@ -1,0 +1,19 @@
+.palette-paper {
+  align-self: flex-start;
+  margin-top: 12vh !important;
+}
+
+.palette-input fieldset {
+  border: 0;
+  border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.12);
+  border-radius: 0;
+}
+
+.palette-list {
+  max-height: 24rem;
+  overflow-y: auto;
+}
+
+.palette-empty {
+  padding: var(--space-sm) var(--space-md);
+}

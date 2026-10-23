@@ -5,9 +5,23 @@
   margin-top: var(--space-md);
 }
 
+.tool-section {
+  margin-bottom: var(--space-lg);
+}
+
+.tool-card {
+  position: relative;
+}
+
 .tool-card,
 .tool-card-action {
   height: 100%;
+}
+
+.tool-card-star {
+  position: absolute !important;
+  top: var(--space-xs);
+  right: var(--space-xs);
 }
 
 .tool-card-action {

@@ -1,0 +1,93 @@
+.color-section {
+  margin-bottom: var(--space-md);
+}
+
+.color-converter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xs);
+}
+
+.color-picker {
+  width: 3.5rem;
+  height: 3.5rem;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius);
+  background: none;
+  cursor: pointer;
+}
+
+.color-input {
+  flex: 1;
+  min-width: 14rem;
+}
+
+.color-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.color-label {
+  min-width: 4rem;
+}
+
+.color-value {
+  flex: 1;
+}
+
+.contrast-preview {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding: var(--space-md);
+  border-radius: var(--radius);
+  border: 0.0625rem solid rgba(255, 255, 255, 0.2);
+}
+
+.contrast-large {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.contrast-results {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
+}
+
+.palette-group {
+  margin-bottom: var(--space-sm);
+}
+
+.palette-swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-top: var(--space-xs);
+}
+
+.color-swatch {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.125rem;
+  width: 7rem;
+  height: 5rem;
+  padding: var(--space-xs);
+  border: 0.0625rem solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius);
+  font: inherit;
+  font-size: 0.75rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.color-swatch:hover {
+  transform: translateY(-0.125rem);
+}
