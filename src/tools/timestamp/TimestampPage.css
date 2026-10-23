@@ -1,0 +1,41 @@
+.ts-section {
+  margin-bottom: var(--space-md);
+}
+
+.ts-now {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.ts-input {
+  flex: 1;
+  min-width: 18rem;
+}
+
+.ts-zone {
+  min-width: 18rem;
+}
+
+.ts-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-xs) 0;
+}
+
+.ts-label {
+  min-width: 10rem;
+}
+
+.ts-value {
+  flex: 1;
+  word-break: break-all;
+}
+
+/* The input has helper text below it, so align to the top to keep both fields level. */
+.ts-inputs {
+  align-items: flex-start;
+}

@@ -1,0 +1,52 @@
+.jwt-section {
+  margin-bottom: var(--space-md);
+}
+
+.jwt-alert {
+  margin-top: var(--space-sm);
+}
+
+.jwt-status {
+  margin-bottom: var(--space-sm);
+}
+
+.jwt-panes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.jwt-json {
+  margin: 0;
+  overflow-x: auto;
+  font-family: var(--mono-font);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.jwt-claim {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xs);
+}
+
+.jwt-claim-label {
+  min-width: 12rem;
+}
+
+.mono-text {
+  font-family: var(--mono-font) !important;
+  font-size: 0.875rem !important;
+}
+
+.jwt-signature {
+  word-break: break-all;
+}
+
+@media (max-width: 56rem) {
+  .jwt-panes {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
