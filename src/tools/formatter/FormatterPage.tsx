@@ -118,20 +118,20 @@ export default function FormatterPage() {
           <TextField
             multiline
             fullWidth
-            rows={24}
+            rows={10}
             label="Input"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            className="mono-field"
+            className="mono-field code-pane"
             spellCheck={false}
           />
           <TextField
             multiline
             fullWidth
-            rows={24}
+            rows={10}
             label="Output"
             value={output}
-            className="mono-field"
+            className="mono-field code-pane"
             slotProps={{ input: { readOnly: true } }}
           />
         </div>

@@ -5,12 +5,13 @@
   --space-md: 1.5rem;
   --space-lg: 2.5rem;
   --radius: 0.5rem;
-  --content-width: 75rem;
+  --content-width: 100rem;
   --mono-font: ui-monospace, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
 }
 
+/* Scales the whole rem-based UI up on large screens; never below the browser default. */
 html {
-  font-size: 100%;
+  font-size: clamp(100%, 0.6vw + 0.5rem, 150%);
 }
 
 body {
@@ -21,7 +22,7 @@ body {
 .app-main {
   max-width: var(--content-width);
   margin: 0 auto;
-  padding: var(--space-md) var(--space-sm) var(--space-lg);
+  padding: var(--space-md) var(--space-md) var(--space-lg);
 }
 
 .page-header {

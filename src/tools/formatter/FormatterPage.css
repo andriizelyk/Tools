@@ -24,3 +24,10 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* Panes fill the remaining viewport height instead of a fixed row count. */
+.code-pane textarea {
+  height: calc(100vh - 26rem) !important;
+  min-height: 20rem;
+  resize: vertical;
+}
