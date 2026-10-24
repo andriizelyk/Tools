@@ -62,7 +62,7 @@ export default function HomePage() {
       )}
       <section className="tool-section">
         <Typography variant="h4" component={favoriteTools.length ? 'h2' : 'h1'} gutterBottom>
-          {favoriteTools.length ? 'All tools' : 'Choose a tool'}
+          {favoriteTools.length ? 'All tools' : 'Choose tool'}
         </Typography>
         <div className="tool-grid">
           {tools.map((tool) => (
