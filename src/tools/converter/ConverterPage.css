@@ -1,0 +1,30 @@
+.conv-format {
+  min-width: 11rem;
+}
+
+.conv-small {
+  min-width: 9rem;
+}
+
+.conv-panes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-sm);
+}
+
+.conv-error {
+  margin-bottom: var(--space-sm);
+}
+
+/* Panes fill the remaining viewport height, like the formatter. */
+.conv-panes .code-pane textarea {
+  height: calc(100dvh - 24rem) !important;
+  min-height: 18rem;
+  resize: vertical;
+}
+
+@media (max-width: 56rem) {
+  .conv-panes {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

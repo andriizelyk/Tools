@@ -1,0 +1,49 @@
+.cidr-section {
+  margin-bottom: var(--space-md);
+}
+
+.cidr-examples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-top: var(--space-sm);
+}
+
+.cidr-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.cidr-label {
+  min-width: 10rem;
+}
+
+.cidr-value {
+  flex: 1;
+  word-break: break-all;
+}
+
+.cidr-binary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xs);
+}
+
+.cidr-bits {
+  letter-spacing: 0.0625rem;
+}
+
+.bit-network {
+  color: #90a4ff;
+}
+
+.bit-host {
+  color: #7a8294;
+}
+
+.cidr-prefix {
+  min-width: 12rem;
+}

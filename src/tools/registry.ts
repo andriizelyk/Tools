@@ -9,6 +9,8 @@ import CompareIcon from '@mui/icons-material/Compare';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import PaletteIcon from '@mui/icons-material/Palette';
 import QrCode2Icon from '@mui/icons-material/QrCode2';
+import LanIcon from '@mui/icons-material/Lan';
+import SwapHorizIcon from '@mui/icons-material/SwapHoriz';
 
 const FormatterPage = lazy(() => import('./formatter/FormatterPage'));
 const UrlParserPage = lazy(() => import('./urlParser/UrlParserPage'));
@@ -19,6 +21,8 @@ const DiffPage = lazy(() => import('./diff/DiffPage'));
 const CronPage = lazy(() => import('./cron/CronPage'));
 const ColorPage = lazy(() => import('./color/ColorPage'));
 const QrPage = lazy(() => import('./qr/QrPage'));
+const CidrPage = lazy(() => import('./cidr/CidrPage'));
+const ConverterPage = lazy(() => import('./converter/ConverterPage'));
 
 export interface ToolDefinition {
   path: string;
@@ -91,5 +95,19 @@ export const tools: ToolDefinition[] = [
     description: 'Generate QR codes from text or URLs and download them as PNG or SVG.',
     icon: QrCode2Icon,
     component: QrPage,
+  },
+  {
+    path: 'cidr',
+    title: 'CIDR / IP Calculator',
+    description: 'Subnet ranges, masks and host counts for IPv4 and IPv6, with a subnet splitter.',
+    icon: LanIcon,
+    component: CidrPage,
+  },
+  {
+    path: 'converter',
+    title: 'Data Format Converter',
+    description: 'Convert between JSON, YAML, XML, CSV and Markdown tables.',
+    icon: SwapHorizIcon,
+    component: ConverterPage,
   },
 ];
