@@ -58,3 +58,7 @@ body {
 .panel {
   padding: var(--space-sm);
 }
+
+.page-header-icon {
+  font-size: 2rem !important;
+}

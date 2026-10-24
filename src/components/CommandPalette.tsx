@@ -28,6 +28,7 @@ interface Entry {
   title: string;
   description: string;
   icon: typeof HomeIcon;
+  accent?: string;
   favorite: boolean;
 }
 
@@ -46,6 +47,7 @@ export default function CommandPalette({ open, onClose }: Props) {
         title: t.title,
         description: t.description,
         icon: t.icon,
+        accent: t.accent,
         favorite: isFavorite(t.path),
       })),
     ];
@@ -120,7 +122,7 @@ export default function CommandPalette({ open, onClose }: Props) {
               if (el && i === active) el.scrollIntoView({ block: 'nearest' });
             }}
           >
-            <ListItemIcon>
+            <ListItemIcon style={{ color: entry.accent }}>
               <entry.icon />
             </ListItemIcon>
             <ListItemText primary={entry.title} secondary={entry.description} />

@@ -29,6 +29,8 @@ export interface ToolDefinition {
   title: string;
   description: string;
   icon: SvgIconComponent;
+  /** Muted accent used for the tool's icon; keep it soft enough for everyday use on a dark background. */
+  accent: string;
   component: ComponentType | LazyExoticComponent<ComponentType>;
 }
 
@@ -38,6 +40,7 @@ export const tools: ToolDefinition[] = [
     title: 'Code Formatter',
     description: 'Beautify JSON, YAML, XML, C#, JavaScript and TypeScript.',
     icon: CodeIcon,
+    accent: '#8fa3f5',
     component: FormatterPage,
   },
   {
@@ -45,6 +48,7 @@ export const tools: ToolDefinition[] = [
     title: 'URL Parser',
     description: 'Split a URL into host, path and query parameters, edit and encode each part.',
     icon: LinkIcon,
+    accent: '#6fb7c9',
     component: UrlParserPage,
   },
   {
@@ -52,6 +56,7 @@ export const tools: ToolDefinition[] = [
     title: 'JWT Decoder',
     description: 'Inspect the header, payload and expiry of a JSON Web Token.',
     icon: VpnKeyIcon,
+    accent: '#d9a35f',
     component: JwtPage,
   },
   {
@@ -59,6 +64,7 @@ export const tools: ToolDefinition[] = [
     title: 'UUID / GUID Generator',
     description: 'Generate v4 or v7 identifiers in bulk with format options.',
     icon: FingerprintIcon,
+    accent: '#b58fd8',
     component: UuidPage,
   },
   {
@@ -66,6 +72,7 @@ export const tools: ToolDefinition[] = [
     title: 'Timestamp Converter',
     description: 'Convert Unix epoch values and dates between formats and time zones.',
     icon: ScheduleIcon,
+    accent: '#7cc4a0',
     component: TimestampPage,
   },
   {
@@ -73,6 +80,7 @@ export const tools: ToolDefinition[] = [
     title: 'Text Diff',
     description: 'Compare two texts line by line and highlight the changes.',
     icon: CompareIcon,
+    accent: '#d98a8a',
     component: DiffPage,
   },
   {
@@ -80,6 +88,7 @@ export const tools: ToolDefinition[] = [
     title: 'Cron Expression Explainer',
     description: 'Translate cron expressions to plain English and preview the next runs.',
     icon: AccessTimeIcon,
+    accent: '#c9b86a',
     component: CronPage,
   },
   {
@@ -87,6 +96,7 @@ export const tools: ToolDefinition[] = [
     title: 'Color Tools',
     description: 'Convert HEX, RGB and HSL, check WCAG contrast and build palettes.',
     icon: PaletteIcon,
+    accent: '#d98fb8',
     component: ColorPage,
   },
   {
@@ -94,6 +104,7 @@ export const tools: ToolDefinition[] = [
     title: 'QR Code Generator',
     description: 'Generate QR codes from text or URLs and download them as PNG or SVG.',
     icon: QrCode2Icon,
+    accent: '#7fb0d9',
     component: QrPage,
   },
   {
@@ -101,6 +112,7 @@ export const tools: ToolDefinition[] = [
     title: 'CIDR / IP Calculator',
     description: 'Subnet ranges, masks and host counts for IPv4 and IPv6, with a subnet splitter.',
     icon: LanIcon,
+    accent: '#8fc77f',
     component: CidrPage,
   },
   {
@@ -108,6 +120,7 @@ export const tools: ToolDefinition[] = [
     title: 'Data Format Converter',
     description: 'Convert between JSON, YAML, XML, CSV and Markdown tables.',
     icon: SwapHorizIcon,
+    accent: '#e0966a',
     component: ConverterPage,
   },
 ];

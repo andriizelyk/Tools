@@ -28,7 +28,26 @@
   align-items: flex-start;
 }
 
+.tool-card {
+  transition: border-color 0.15s;
+}
+
+.tool-card:hover {
+  border-color: color-mix(in srgb, var(--tool-accent) 55%, transparent);
+}
+
+.tool-card-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: var(--space-sm);
+  border-radius: 0.75rem;
+  color: var(--tool-accent);
+  background: color-mix(in srgb, var(--tool-accent) 14%, transparent);
+}
+
 .tool-card-icon {
-  font-size: 2.5rem !important;
-  margin-bottom: var(--space-xs);
+  font-size: 1.75rem !important;
 }

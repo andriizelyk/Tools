@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Card, CardActionArea, CardContent, IconButton, Tooltip, Typography } from '@mui/material';
 import StarIcon from '@mui/icons-material/Star';
@@ -12,10 +13,12 @@ function ToolCard({ tool }: { tool: ToolDefinition }) {
   const Icon = tool.icon;
 
   return (
-    <Card variant="outlined" className="tool-card">
+    <Card variant="outlined" className="tool-card" style={{ '--tool-accent': tool.accent } as CSSProperties}>
       <CardActionArea component={RouterLink} to={`/${tool.path}`} className="tool-card-action">
         <CardContent>
-          <Icon color="primary" className="tool-card-icon" />
+          <span className="tool-card-badge">
+            <Icon className="tool-card-icon" />
+          </span>
           <Typography variant="h6" component="h2" gutterBottom>
             {tool.title}
           </Typography>
