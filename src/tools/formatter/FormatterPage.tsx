@@ -11,6 +11,7 @@ import {
 import CompressIcon from '@mui/icons-material/Compress';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutlined';
 import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
+import CodeEditor from '../../components/CodeEditor';
 import CopyButton from '../../components/CopyButton';
 import PageHeader from '../../components/PageHeader';
 import { languages, minifyJson, type LanguageId } from './formatters';
@@ -115,25 +116,8 @@ export default function FormatterPage() {
         )}
 
         <div className="formatter-panes">
-          <TextField
-            multiline
-            fullWidth
-            rows={10}
-            label="Input"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            className="mono-field code-pane"
-            spellCheck={false}
-          />
-          <TextField
-            multiline
-            fullWidth
-            rows={10}
-            label="Output"
-            value={output}
-            className="mono-field code-pane"
-            slotProps={{ input: { readOnly: true } }}
-          />
+          <CodeEditor label="Input" value={input} language={language.prism} onChange={setInput} />
+          <CodeEditor label="Output" value={output} language={language.prism} readOnly />
         </div>
       </Paper>
     </>

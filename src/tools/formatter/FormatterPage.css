@@ -25,10 +25,3 @@
   }
 }
 
-/* Panes fill the remaining viewport height instead of a fixed row count. */
-.code-pane textarea {
-  height: calc(100vh - 23rem) !important;
-  height: calc(100dvh - 23rem) !important;
-  min-height: 20rem;
-  resize: vertical;
-}
