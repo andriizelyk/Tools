@@ -114,3 +114,7 @@
 .code-editor .token.italic {
   font-style: italic;
 }
+
+.code-editor .token.table-header {
+  color: #8fa3f5;
+}

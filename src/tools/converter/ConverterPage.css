@@ -16,12 +16,6 @@
   margin-bottom: var(--space-sm);
 }
 
-/* Panes fill the remaining viewport height, like the formatter. */
-.conv-panes .code-pane textarea {
-  height: calc(100dvh - 24rem) !important;
-  min-height: 18rem;
-  resize: vertical;
-}
 
 @media (max-width: 56rem) {
   .conv-panes {

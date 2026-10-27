@@ -50,3 +50,16 @@ export function relativeTime(date: Date, now = Date.now()): string {
   }
   return rtf.format(seconds, 'second');
 }
+
+// "UTC+03:00" style offset of a zone at a given moment (daylight saving shifts it over the year).
+function utcOffset(zone: string, date: Date): string {
+  const part = new Intl.DateTimeFormat('en-US', { timeZone: zone, timeZoneName: 'longOffset' })
+    .formatToParts(date)
+    .find((p) => p.type === 'timeZoneName')?.value;
+  if (!part) return '';
+  return part === 'GMT' ? 'UTC+00:00' : part.replace('GMT', 'UTC');
+}
+
+export function zoneLabels(zones: string[], date: Date): Record<string, string> {
+  return Object.fromEntries(zones.map((z) => [z, `${z} (${utcOffset(z, date)})`]));
+}

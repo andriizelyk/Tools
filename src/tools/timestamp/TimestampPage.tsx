@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Autocomplete, Button, Paper, TextField, Typography } from '@mui/material';
 import CopyIconButton from '../../components/CopyIconButton';
 import PageHeader from '../../components/PageHeader';
-import { formatInZone, getTimeZones, LOCAL_ZONE, parseInput, relativeTime } from './timestamp';
+import { formatInZone, getTimeZones, LOCAL_ZONE, parseInput, relativeTime, zoneLabels } from './timestamp';
 import './TimestampPage.css';
 
 export default function TimestampPage() {
@@ -17,6 +17,10 @@ export default function TimestampPage() {
   }, []);
 
   const date = parseInput(input);
+
+  // Offsets depend on the date (daylight saving), so label zones for the entered moment, refreshed hourly.
+  const referenceHour = Math.floor((date?.getTime() ?? now) / 3_600_000);
+  const labels = useMemo(() => zoneLabels(zones, new Date(referenceHour * 3_600_000)), [zones, referenceHour]);
 
   const rows = date
     ? [
@@ -59,6 +63,7 @@ export default function TimestampPage() {
           <Autocomplete
             disableClearable
             options={zones}
+            getOptionLabel={(z) => labels[z] ?? z}
             value={zone}
             onChange={(_, value) => setZone(value)}
             renderInput={(params) => <TextField {...params} label="Time zone" />}

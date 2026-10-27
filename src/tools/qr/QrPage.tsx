@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Alert, Button, MenuItem, Paper, Slider, TextField, Typography } from '@mui/material';
+import { Alert, Button, MenuItem, Paper, Slider, TextField, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material';
 import DownloadIcon from '@mui/icons-material/Download';
-import QRCode from 'qrcode';
+import { renderPng, renderSvg, type TitlePosition } from './compose';
 import PageHeader from '../../components/PageHeader';
 import './QrPage.css';
 
@@ -28,10 +28,14 @@ export default function QrPage() {
   const [margin, setMargin] = useState(2);
   const [dark, setDark] = useState('#000000');
   const [light, setLight] = useState('#ffffff');
+  const [title, setTitle] = useState('');
+  const [titlePosition, setTitlePosition] = useState<TitlePosition>('bottom');
+  const [titleScale, setTitleScale] = useState(6);
   const [png, setPng] = useState('');
   const [error, setError] = useState('');
 
   const options = { errorCorrectionLevel: level, width: size, margin, color: { dark, light } };
+  const titleOptions = { text: title, position: titlePosition, scale: titleScale, color: dark, background: light };
 
   useEffect(() => {
     if (!text) {
@@ -40,7 +44,7 @@ export default function QrPage() {
       return;
     }
     let cancelled = false;
-    QRCode.toDataURL(text, options)
+    renderPng(text, options, titleOptions)
       .then((url) => {
         if (!cancelled) {
           setPng(url);
@@ -57,10 +61,10 @@ export default function QrPage() {
       cancelled = true;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [text, level, size, margin, dark, light]);
+  }, [text, level, size, margin, dark, light, title, titlePosition, titleScale]);
 
   const downloadSvg = async () => {
-    const svg = await QRCode.toString(text, { ...options, type: 'svg' });
+    const svg = await renderSvg(text, options, titleOptions);
     const url = URL.createObjectURL(new Blob([svg], { type: 'image/svg+xml' }));
     download(url, 'qrcode.svg');
     URL.revokeObjectURL(url);
@@ -81,6 +85,31 @@ export default function QrPage() {
             className="mono-field qr-field"
             spellCheck={false}
           />
+          <TextField
+            fullWidth
+            label="Title (optional)"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            className="qr-field"
+          />
+          {title.trim() && (
+            <>
+              <ToggleButtonGroup
+                exclusive
+                fullWidth
+                size="small"
+                color="primary"
+                value={titlePosition}
+                onChange={(_, v: TitlePosition | null) => v && setTitlePosition(v)}
+                className="qr-field"
+              >
+                <ToggleButton value="top">Title above</ToggleButton>
+                <ToggleButton value="bottom">Title below</ToggleButton>
+              </ToggleButtonGroup>
+              <Typography gutterBottom>Title size: {titleScale}%</Typography>
+              <Slider value={titleScale} min={3} max={14} step={1} onChange={(_, v) => setTitleScale(v)} className="qr-field" />
+            </>
+          )}
           <TextField
             select
             fullWidth

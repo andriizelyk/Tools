@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import { Alert, FormControlLabel, IconButton, MenuItem, Paper, Switch, TextField, Tooltip } from '@mui/material';
 import SwapHorizIcon from '@mui/icons-material/SwapHoriz';
+import CodeEditor from '../../components/CodeEditor';
 import CopyButton from '../../components/CopyButton';
 import PageHeader from '../../components/PageHeader';
 import { convert, FORMATS, type ConvertOptions, type FormatId } from './convert';
@@ -41,6 +42,8 @@ export default function ConverterPage() {
     }
   }, [from, to, input, options]);
 
+  const fromFormat = FORMATS.find((f) => f.id === from)!;
+  const toFormat = FORMATS.find((f) => f.id === to)!;
   const tabular = [from, to].some((f) => f === 'csv' || f === 'markdown');
   const usesCsv = from === 'csv' || to === 'csv';
 
@@ -117,25 +120,8 @@ export default function ConverterPage() {
         )}
 
         <div className="conv-panes">
-          <TextField
-            multiline
-            fullWidth
-            rows={10}
-            label={`Input (${FORMATS.find((f) => f.id === from)!.label})`}
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            className="mono-field code-pane"
-            spellCheck={false}
-          />
-          <TextField
-            multiline
-            fullWidth
-            rows={10}
-            label={`Output (${FORMATS.find((f) => f.id === to)!.label})`}
-            value={output}
-            className="mono-field code-pane"
-            slotProps={{ input: { readOnly: true } }}
-          />
+          <CodeEditor label={`Input (${fromFormat.label})`} value={input} language={fromFormat.prism} onChange={setInput} />
+          <CodeEditor label={`Output (${toFormat.label})`} value={output} language={toFormat.prism} readOnly />
         </div>
       </Paper>
     </>

@@ -6,7 +6,16 @@ import 'prismjs/components/prism-typescript';
 import 'prismjs/components/prism-csharp';
 import 'prismjs/components/prism-json';
 import 'prismjs/components/prism-yaml';
+import 'prismjs/components/prism-markdown';
 import './CodeEditor.css';
+
+// Prism has no CSV grammar; this small one colours quoted fields, numbers and separators.
+Prism.languages.csv = {
+  string: /"(?:[^"]|"")*"/,
+  number: /(?<![\w.])-?\d+(?:\.\d+)?(?![\w.])/,
+  boolean: /\b(?:true|false)\b/,
+  punctuation: /[,;|\t]/,
+};
 
 // The package is CommonJS; depending on the bundler the default import is the module object itself.
 const Editor = ((EditorModule as unknown as { default?: typeof EditorModule }).default ?? EditorModule) as typeof EditorModule;
@@ -19,7 +28,7 @@ const escapeHtml = (text: string) => text.replace(/&/g, '&amp;').replace(/</g, '
 interface Props {
   label: string;
   value: string;
-  /** A Prism grammar name: json, yaml, markup, csharp, javascript or typescript. */
+  /** A Prism grammar name, e.g. json, yaml, markup, csv, markdown, csharp, javascript or typescript. */
   language: string;
   onChange?: (value: string) => void;
   readOnly?: boolean;

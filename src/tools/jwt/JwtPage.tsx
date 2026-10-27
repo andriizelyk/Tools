@@ -1,4 +1,5 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { Alert, Chip, Paper, TextField, Typography } from '@mui/material';
 import CopyButton from '../../components/CopyButton';
 import PageHeader from '../../components/PageHeader';
@@ -8,7 +9,22 @@ import './JwtPage.css';
 const pretty = (value: unknown) => JSON.stringify(value, null, 2);
 
 export default function JwtPage() {
-  const [token, setToken] = useState('');
+  const [params, setParams] = useSearchParams();
+  const [token, setToken] = useState(() => params.get('token') ?? '');
+
+  // A link like #/jwt?token=eyJ… prefills the field; the token is then removed from the address bar.
+  useEffect(() => {
+    const incoming = params.get('token');
+    if (incoming === null) return;
+    if (incoming) setToken(incoming);
+    setParams(
+      (current) => {
+        current.delete('token');
+        return current;
+      },
+      { replace: true },
+    );
+  }, [params, setParams]);
 
   const { decoded, error } = useMemo(() => {
     if (!token.trim()) return { decoded: null, error: '' };
@@ -30,7 +46,7 @@ export default function JwtPage() {
     <>
       <PageHeader
         title="JWT Decoder"
-        description="Decode a JSON Web Token in your browser. Nothing is sent anywhere, and the signature is not verified."
+        description="Decode a JSON Web Token in your browser. Nothing is sent anywhere, and the signature is not verified. Tip: open this page as #/jwt?token=<jwt> to prefill the field."
       />
       <Paper variant="outlined" className="panel jwt-section">
         <TextField

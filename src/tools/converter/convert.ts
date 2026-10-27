@@ -6,12 +6,12 @@ import { tableToValue, valueToTable } from './table';
 
 export type FormatId = 'json' | 'yaml' | 'xml' | 'csv' | 'markdown';
 
-export const FORMATS: { id: FormatId; label: string }[] = [
-  { id: 'json', label: 'JSON' },
-  { id: 'yaml', label: 'YAML' },
-  { id: 'xml', label: 'XML' },
-  { id: 'csv', label: 'CSV' },
-  { id: 'markdown', label: 'Markdown table' },
+export const FORMATS: { id: FormatId; label: string; /** Prism grammar used for highlighting. */ prism: string }[] = [
+  { id: 'json', label: 'JSON', prism: 'json' },
+  { id: 'yaml', label: 'YAML', prism: 'yaml' },
+  { id: 'xml', label: 'XML', prism: 'markup' },
+  { id: 'csv', label: 'CSV', prism: 'csv' },
+  { id: 'markdown', label: 'Markdown table', prism: 'markdown' },
 ];
 
 export interface ConvertOptions {
